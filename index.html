@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- displays site properly based on user's device -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        >
+        <title>Frontend Mentor | Time tracking dashboard</title>
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+          @font-face {
+            font-family: 'Rubik';
+            src: url(https://fonts.google.com/specimen/Rubik);
+          }
+          :root {
+            font-family: 'Rubik', sans-serif;
+          }
+    
+    .TimeSelect > div {
+        color: hsl(235, 45%, 61%);
+    }
+    .TimeSelect > div.active {
+        color: white;
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      }
+      
+      .div1 { grid-area: 1 / 1 / 7 / 4; }
+      .div2 { grid-area: 1 / 4 / 4 / 7; }
+      .div3 { grid-area: 1 / 7 / 4 / 10; }
+      .div4 { grid-area: 1 / 10 / 4 / 13; }
+      .div5 { grid-area: 4 / 4 / 7 / 7; }
+      .div6 { grid-area: 4 / 7 / 7 / 10; }
+      .div7 { grid-area: 4 / 10 / 7 / 13; }
+      @media screen and (max-width: 760px) {
+        .parent {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+          grid-column-gap: 10px;
+          grid-row-gap: 10px;
+          }
+          
+          .div1 { grid-area: 1 / 1 / 2 / 3; }
+          .div2 { grid-area: 2 / 1 / 3 / 2; }
+          .div3 { grid-area: 2 / 2 / 3 / 3; }
+          .div4 { grid-area: 3 / 1 / 4 / 2; }
+          .div5 { grid-area: 3 / 2 / 4 / 3; }
+          .div6 { grid-area: 4 / 1 / 5 / 2; }
+          .div7 { grid-area: 4 / 2 / 5 / 3; }
+      }
+      @media screen and (max-width: 520px) {
+        .parent {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, 1fr);
+            grid-row-gap: 10px;
+            }
+            
+            .div1 { grid-area: 1 / 1 / 2 / 2; }
+            .div2 { grid-area: 2 / 1 / 3 / 2; }
+            .div3 { grid-area: 3 / 1 / 4 / 2; }
+            .div4 { grid-area: 4 / 1 / 5 / 2; }
+            .div5 { grid-area: 5 / 1 / 6 / 2; }
+            .div6 { grid-area: 6 / 1 / 7 / 2; }
+            .div7 { grid-area: 7 / 1 / 8 / 2; }
+      }
+        </style>
+    </head>
+    <body class="mt-[50px] min-[760px]:mt-0 text-white bg-[color:hsl(226,43%,10%)] min-[760px]:h-screen min-[760px]:w-screen flex justify-center items-center">
+        <div class="parent min-w-[300px] w-[70%] min-[760px]:w-[90%] min-[992px]:w-[80%]">
+            <div class="div1 Card PersonalCard bg-[color:hsl(235,46%,20%)] grow-1 justify-stretch rounded-xl min-[760px]:ml-[20px]">
+                <div class="p-[25px] flex min-[760px]:flex-col bg-[color:hsl(246,80%,60%)] rounded-xl min-[760px]:pb-[40px]">
+                    <img src="./images/image-jeremy.png" class="min-[760px]:mb-[30px] border border-white rounded-full w-[70px]">
+                    <div class="min-[760px]:pl-0 pl-3 flex flex-col justify-center min-[760px]:flex-0">
+                        <p class="text-sm min-[760px]:text-[10px] min-[992px]:text-sm">Report for</p>
+                        <h1 class="text-[20px] min-[520px]:text-[30px] min-[760px]:text-[20px] min-[992px]:text-[35px] leading-tight">
+                            Jeremy
+                            <br class="hidden min-[992px]:visible">
+                            Robson
+                        </h1>
+                    </div>
+                </div>
+                <div class="TimeSelect flex w-full p-[10px] min-[520px]:py-[20px] min-[520px]:px-[25px] min-[760px]:p-[25px] flex-row justify-between min-[760px]:flex-col">
+                    <div class="w-1/3 text-center cursor-pointer min-[760px]:w-fit min-[760px]:text-start text-[14px] min-[992px]:text-[16px] py-1 DailyBtn">Daily</div>
+                    <div class="w-1/3 text-center cursor-pointer min-[760px]:w-fit min-[760px]:text-start text-[14px] min-[992px]:text-[16px] py-1 WeeklyBtn">Weekly</div>
+                    <div class="w-1/3 text-center cursor-pointer min-[760px]:w-fit min-[760px]:text-start text-[14px] min-[992px]:text-[16px] py-1 MonthlyBtn">Monthly</div>
+                </div>
+            </div>
+            <div class="div2 card WorkCard flex flex-col justify-end relative bg-[color:hsl(15,100%,70%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-work.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Work
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">32hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 36hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div3 Card PlayCard flex flex-col justify-end relative bg-[color:hsl(195,74%,62%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-play.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Play
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">10hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 8hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div4 Card StudyCard flex flex-col justify-end relative bg-[color:hsl(348,100%,68%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-study.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Study
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">4hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 7hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div5 Card ExerciseCard flex flex-col justify-end relative bg-[color:hsl(145,58%,55%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-exercise.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Exercise
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">4hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 5hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div6 Card SocialCard flex flex-col justify-end relative bg-[color:hsl(264,64%,52%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-social.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Social
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">5hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 10hrs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div7 Card SelfCareCard flex flex-col justify-end relative bg-[color:hsl(43,84%,65%)] rounded-xl" style="contain: paint;">
+                <div class="relative h-[40px]">
+                    <img src="./images/icon-self-care.svg" class=" absolute top-[-10px] right-[20px] z-[-1]">
+                </div>
+                <div class="p-[25px] min-[762px]:p-[20px] min-[992px]:px-[28px] min-[992px]:py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Self Care
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <div class="flex flex-row justify-between items-center  min-[520px]:flex-col min-[520px]:justify-start min-[520px]:items-start">
+                        <p class="text-[30px] min-[520px]:text-[40px] min-[760px]:text-[35px] min-[992px]:text-[50px] CurrentTime">2hrs</p>
+                        <p class="text-xs min-[760px]:text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)] LastTime">Last Week - 2hrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="flex w-[90%] h-fit gap-x-5 justify-center ">
+            <div class="w-[20%] max-w-[230px] bg-[color:hsl(235,46%,20%)] grow-0 rounded-xl">
+                <div class="p-[25px] bg-[color:hsl(246,80%,60%)] rounded-xl pb-[40px]">
+                    <img src="./images/image-jeremy.png" class="mb-[30px] border border-white rounded-full w-[70px]">
+                    <p class="text-[10px] min-[992px]:text-sm">Report for</p>
+                    <h1 class="text-[20px] min-[992px]:text-[35px] leading-tight">
+                        Jeremy
+                        <br>
+                        Robson
+                    </h1>
+                </div>
+                <div class="TimeSelect flex p-[25px]  flex-col">
+                    <p class="active text-[14px] min-[992px]:text-[16px] py-1">Daily</p>
+                    <p class="text-[14px] min-[992px]:text-[16px] py-1 ">Weekly</p>
+                    <p class="text-[14px] min-[992px]:text-[16px] py-1">Monthly</p>
+                </div>
+            </div>
+
+            <div class="w-[23%] max-w-[300px] gap-y-5 flex flex-col">
+                <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                    <div class="relative h-[40px] overflow-hidden">
+                        <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                    </div>
+                    <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                        <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                            Work
+                            <img src="./images/icon-ellipsis.svg">
+                        </div>
+                        <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                        <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                    </div>
+                </div>
+                <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                    <div class="relative h-[40px] overflow-hidden">
+                        <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                    </div>
+                    <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                        <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                            Work
+                            <img src="./images/icon-ellipsis.svg">
+                        </div>
+                        <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                        <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-[23%] max-w-[300px] gap-y-5 flex flex-col">
+              <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                  <div class="relative h-[40px] overflow-hidden">
+                      <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                  </div>
+                  <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                      <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                          Work
+                          <img src="./images/icon-ellipsis.svg">
+                      </div>
+                      <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                      <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                  </div>
+              </div>
+              <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                  <div class="relative h-[40px] overflow-hidden">
+                      <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                  </div>
+                  <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                      <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                          Work
+                          <img src="./images/icon-ellipsis.svg">
+                      </div>
+                      <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                      <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="w-[23%] max-w-[300px] gap-y-5 flex flex-col">
+            <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                <div class="relative h-[40px] overflow-hidden">
+                    <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                </div>
+                <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Work
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                    <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                </div>
+            </div>
+            <div class="relative bg-[color:hsl(15,100%,70%)] grow-0 shrink-1 rounded-2xl">
+                <div class="relative h-[40px] overflow-hidden">
+                    <img src="./images/icon-work.svg" class="absolute top-[-10px] right-[20px]">
+                </div>
+                <div class="px-[28px] py-[20px] bg-[color:hsl(235,46%,20%)] rounded-xl ">
+                    <div class="pb-2 text-[14px] min-[992px]:text-[16px] flex justify-between items-center">
+                        Work
+                        <img src="./images/icon-ellipsis.svg">
+                    </div>
+                    <p class="text-[35px] min-[992px]:text-[50px]">32hrs</p>
+                    <p class="text-[10px] min-[992px]:text-sm text-[color:hsl(235,45%,61%)]">Last Week - 36hrs</p>
+                </div>
+            </div>
+
+        </div>
+
+        </div> -->
+    </body>
+    <script type="module" src="./index.js"></script>
+</html>
